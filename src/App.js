@@ -21,7 +21,7 @@ function App() {
         <h1>Country Facts</h1>
       </nav>
       <div className="container">
-        {countries.map((country, idx) => {
+        {/* {countries.map((country, idx) => {
           const { name, capital, population, region, flag } = country;
           return (
             <Card
@@ -33,7 +33,11 @@ function App() {
               key={idx}
             />
           );
-        })}
+        })} */}
+        <h1 className="info">
+          API down, under construction
+        </h1>
+        <p className="info-text">Stay tuned for exciting features and look</p>
       </div>
     </>
   );

@@ -9,16 +9,31 @@ nav {
   margin: auto;
   margin-top: 10px;
   padding: 5px;
+
+  /* remove code below comment */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.info {
+  font-weight: 700;
+}
+
+.info-text {
+  color: rgba(46, 45, 45, 0.933);
 }
 
 @media screen and (min-width: 769px) {
-  .container {
+  /* .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 15px;
     row-gap: 20px;
     padding: 10px;
-  }
+  } */
 
   nav h1 {
     width: 90%;
@@ -27,13 +42,13 @@ nav {
 }
 
 @media screen and (min-width: 1280px) {
-  .container {
+  /* .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 15px;
     row-gap: 20px;
     padding: 10px;
-  }
+  } */
 
   nav {
     padding: 30px;
