@@ -1,44 +1,39 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Card from "./Components/Card/Card";
+import Navbar from "./Components/Navbar/Navbar";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
+import { Switch, Route } from "react-router-dom";
+import Quiz from "./Components/Quiz/Quiz";
+import Home from "./Components/Home/Home";
+import { useStateValue } from "./StateProvider";
 
 function App() {
-  const [countries, setCountries] = useState([]);
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
-    fetchCountries();
+    getCountries();
   }, []);
 
-  async function fetchCountries() {
-    const req = await fetch("https://restcountries.eu/rest/v2/regionalbloc/au");
+  const getCountries = async () => {
+    const req = await fetch(
+      `http://api.countrylayer.com/v2/all?access_key=${process.env.REACT_APP_COUNTRY_API_KEY}`
+    );
     const res = await req.json();
-    setCountries(res);
-  }
+    const data = await res;
+    dispatch({
+      type: "SET_COUNTRIES",
+      payload: data,
+    });
+  };
 
   return (
     <>
-      <nav>
-        <h1>Country Facts</h1>
-      </nav>
-      <div className="container">
-        {/* {countries.map((country, idx) => {
-          const { name, capital, population, region, flag } = country;
-          return (
-            <Card
-              name={name}
-              flag={flag}
-              population={population}
-              continent={region}
-              capital={capital}
-              key={idx}
-            />
-          );
-        })} */}
-        <h1 className="info">
-          API down, under construction
-        </h1>
-        <p className="info-text">Stay tuned for exciting features and look</p>
-      </div>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/quiz" component={Quiz} />
+        <Route component={ErrorPage} />
+      </Switch>
     </>
   );
 }
