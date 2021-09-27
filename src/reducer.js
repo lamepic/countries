@@ -1,7 +1,12 @@
+import {data} from './data'
+
 export const initialState = {
-  countries: [],
-  selectedCategory: "",
-  search: ""
+  countries: data,
+  selectedCategory: "All",
+  search: "",
+  displayCategory: [],
+  openModal: false,
+  showScrollButton: false,
 };
 
 export const reducer = (state, action) => {
@@ -23,6 +28,25 @@ export const reducer = (state, action) => {
         ...state,
         countries: action.payload,
       };
+
+    case "SET_DISPLAY_CATEGORY":
+      return {
+        ...state,
+        displayCategory: action.payload,
+      };
+
+    case "SET_OPEN_MODAL":
+      return {
+        ...state,
+        openModal: action.payload,
+      };
+
+    case "SET_SHOW_SCROLL_BUTTON":
+      return {
+        ...state,
+        showScrollButton: action.payload,
+      };
+
     default:
       return state;
   }

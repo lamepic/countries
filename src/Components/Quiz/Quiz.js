@@ -9,7 +9,7 @@ function Quiz() {
             <div className="quiz__content">
                 <h1>Coming Soon</h1>
                 <p>watch this space for exciting features</p>
-                <Link to="/"><Button contained sx={{color: "#000"}}>Go Back</Button></Link>
+                <Button sx={{color: "#000"}}><Link to="/">Go Back</Link></Button>
             </div>
         </div>
     )

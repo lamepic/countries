@@ -32,8 +32,8 @@ function SelectCategory() {
             <MenuItem value="Africa">Africa</MenuItem>
             <MenuItem value="Americas">Americas</MenuItem>
             <MenuItem value="Asia">Asia</MenuItem>
-            <MenuItem value="Australia">Australia</MenuItem>
             <MenuItem value="Europe">Europe</MenuItem>
+            <MenuItem value="Oceania">Oceania</MenuItem>
           </Select>
         </FormControl>
       </Box>

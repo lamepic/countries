@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Navbar.css";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -53,15 +53,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Navbar() {
-  const [{search}, dispatch] = useStateValue()
+  // const [{search, selectedCategory}, dispatch] = useStateValue()
+  // const [text, setText] = useState('')
 
-  const handleChange = (event) => {
-    event.preventDefault()
-    dispatch({
-      type: 'SEARCH',
-      payload: event.target.value
-    })
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   dispatch({
+  //     type: 'SEARCH',
+  //     payload: text
+  //   })
+  //   setText('')
+  // }
+
+  // const handleCategory = () => {
+  //   dispatch({
+  //     type: "SELECTED_CATEGORY",
+  //     payload: selectedCategory
+  //   })
+  // }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -86,7 +95,6 @@ function Navbar() {
               Countries
               </Link>
             </Typography>
-         
           <Link to="/quiz">
             <Typography
               variant="p"
@@ -106,11 +114,14 @@ function Navbar() {
             <SearchIconWrapper>
               <SearchIcon sx={{color: "#000"}} />
             </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-              onChange={(e) => handleChange(e)}
-            />
+            {/* <form onSubmit={handleSubmit}> */}
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+                // onChange={(e) => setText(e.target.value)}
+                // value={text}
+              />
+            {/* </form> */}
           </Search>
         </Toolbar>
       </AppBar>

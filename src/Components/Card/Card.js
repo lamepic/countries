@@ -1,28 +1,41 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import "./Card.css";
+import Modal from '../Modal/Modal'
 
-function CardItem({ name, capital, flag, population, continent }) {
+
+
+function CardItem({ country }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
+      {open && <Modal handleClose={handleClose} open={open} country={country} />}
       <Card sx={{height: "100%"}}>
-        <CardMedia image={flag} title="Card Title" sx={{ paddingTop: "56.25%"}}/>
+        <CardMedia image={`flags/${country.flag}`} title={country.name.common} sx={{ paddingTop: "56.25%"}}/>
         <CardContent>
           <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
-            Name : {name}
+            Name : {country.name.common}
           </Typography><br />
           <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
-            Capital : {capital}
+            Capital : {country.capital[0]}
           </Typography><br />
           <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
-            Continent : {continent}
+            Continent : {country.region}
           </Typography><br />
-          <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
-            Population : {population}
-          </Typography><br />
+          {/* <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
+            Population : 
+          </Typography><br /> */}
         </CardContent>
         <CardActions sx={{paddingTop: 0}}>
-          <Button size="small" sx={{color: "tomato"}}>View</Button>
+          <Button size="small" sx={{color: "tomato"}} onClick={handleClickOpen}>View</Button>
         </CardActions>
       </Card>
     </div>
@@ -30,19 +43,3 @@ function CardItem({ name, capital, flag, population, continent }) {
 }
 
 export default CardItem;
-
-{
-  /* <div className="card__content">
-        <img
-          src={flag}
-          className="card__img"
-          alt="flag"
-        />
-        <div className="card__subtitle">
-          <p>Name: {name}</p>
-          <p>Capital: {capital}</p>
-          <p>Population: {population}</p>
-          <p>Continent: {continent}</p>
-        </div>
-      </div> */
-}
