@@ -1,0 +1,14 @@
+.cardlist {
+    position: relative;
+}
+
+.notfound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cardlist:last-child {
+    margin-bottom: 60px;
+}

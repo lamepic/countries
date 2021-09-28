@@ -1,0 +1,14 @@
+.home {
+    padding: 10px;
+}
+
+.home__selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.home__content {
+    margin-top: 20px;
+}
