@@ -1,5 +1,4 @@
 import React from "react";
-import "./Modal.css";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -69,7 +68,7 @@ function Modal({handleClose, open, country}) {
             Capital : {country.capital[0]}
           </Typography>
           <Typography  sx={{fontSize: "15px", fontWeight: 700,}} gutterBottom>
-            Continent : {country.region}
+            Continent : {country.region === "Americas" ? "America" : country.region}
           </Typography>
           <Typography  sx={{fontSize: "15px", fontWeight: 700,}} gutterBottom>
             Independent : {country.independent ? "Yes" : "No"}

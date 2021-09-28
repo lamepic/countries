@@ -30,7 +30,7 @@ function SelectCategory() {
           >
             <MenuItem value="All">All</MenuItem>
             <MenuItem value="Africa">Africa</MenuItem>
-            <MenuItem value="Americas">Americas</MenuItem>
+            <MenuItem value="Americas">America</MenuItem>
             <MenuItem value="Asia">Asia</MenuItem>
             <MenuItem value="Europe">Europe</MenuItem>
             <MenuItem value="Oceania">Oceania</MenuItem>

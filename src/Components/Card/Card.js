@@ -28,7 +28,7 @@ function CardItem({ country }) {
             Capital : {country.capital[0]}
           </Typography><br />
           <Typography variant="p" sx={{fontSize: "15px", fontWeight: 600,}}>
-            Continent : {country.region}
+            Continent : {country.region === "Americas" ? "America" : country.region}
           </Typography><br />
         </CardContent>
         <CardActions sx={{paddingTop: 0}}>
