@@ -2,4 +2,4 @@
 
 ## Learn about countries all over the world.
 
-## v1: includes african countries only
+## v2: Includes All countries in the world
